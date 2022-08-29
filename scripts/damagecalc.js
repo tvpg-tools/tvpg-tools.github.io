@@ -6,9 +6,12 @@ function calc() {
     var numerator = 100 + aspd
     var denominator = base + modifier
     var interval = 100 / (numerator / denominator)
+    var baseDPM = atk * (60 / base)
     var dps = atk * (1 / interval)
     var dpm = atk * (60 / interval)
-    alert(`Attack Interval = ${interval}`
-          +`\nDPS = ${dps}`
-          +`\nDPM = ${dpm}`)
+    let delta = ((dpm - baseDPM) / baseDPM) * 100
+    document.getElementById("baseDPM").innerHTML = `${baseDPM.toFixed(2)}`
+    document.getElementById("dpmChange").innerHTML = `${delta.toFixed(2)} %`
+    document.getElementById("DPM").innerHTML = `${dpm.toFixed(2)}`
+
 }
