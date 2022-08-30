@@ -24,3 +24,25 @@ function randomizeCrimsonSolitaire() {
         +`\nSupport Bonus: ${supportBonus}`
         +`\nRecruitment Set: ${recruitmentSet}`)
 }
+
+function calculateASPDBonus()
+{
+  // Get selected items
+  let toy = document.querySelector("#toy").checked
+  let commandments = document.querySelector("#commandments").checked
+  let chalice = document.querySelector("#chalice").checked
+  let ingots = parseInt(document.getElementById("ingots").value)
+  let aspdBonus = 0
+
+  if (toy === true) {
+    aspdBonus += Math.floor(ingots / 5) * 3
+  }
+  if (commandments === true) {
+    aspdBonus += Math.floor(ingots / 5) * 5
+  }
+  if (chalice === true)   {
+    aspdBonus += Math.floor(ingots / 5) * 7
+  }
+
+  document.getElementById("bonus").innerHTML = `Bonus: ${aspdBonus}`
+}

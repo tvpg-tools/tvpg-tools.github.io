@@ -43,6 +43,7 @@
       <h1>Integrated Strategies Randomizer</h1>
     </div>
     <div class="container rounded" style="background-color: white; padding: 5px; margin: 5px">
+      <h2>Randomizer</h2>
       <div id="crimsonSolitaireSquadBonuses">
         <div>
           <input type="checkbox" name="Leader Squad" id="leaderSquad" checked>
@@ -88,6 +89,30 @@
       <input type="button" onclick="randomizeCrimsonSolitaire()" value="Generate Crimson Solitaire Choices">
     </div>
   </div>
+  <div class="container rounded" style="background-color: white; padding: 5px">
+    <h2>ASPD Bonus</h2>
+    <div>
+      <div>
+        <input type="checkbox" id="toy" onchange="calculateASPDBonus()">
+        <label for="toy">Coin-Operated Toy</label>
+      </div>
+      <div>
+        <input type="checkbox" id="commandments" onchange="calculateASPDBonus()">
+        <label for="commandments">Chivalric Commandments - New Edition</label>
+      </div>
+      <div>
+        <input type="checkbox" id="chalice" onchange="calculateASPDBonus()">
+        <label for="chalice">Golden Chalice</label>
+      </div>
+      <div>
+        <input type="number" id="ingots" min="0" step="1" onchange="calculateASPDBonus()" value="0">
+        <label for="ingots">Ingots</label>
+      </div>
+    </div >
+    <div style="padding: 5px">
+      <p id="bonus">Bonus: 0</p>
+    </div>
+    </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <script src="../scripts/crimsonSolitaire.js"></script>
 </body>
