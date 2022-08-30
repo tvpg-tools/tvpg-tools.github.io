@@ -8,7 +8,7 @@
   <style>
     body {
       background-image: url('../bg/background.jpg');
-      background-size: cover
+      background-size: cover;
     }
     nav {
       background-color: white;
@@ -16,7 +16,7 @@
   </style>
 
 </head>
-<body>
+<body onload="updateBranches()">
   <div>
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
@@ -41,7 +41,7 @@
         </div>
       </div>
     </nav>
-    <div class="container rounded" style="margin: 5px;background-color: white;padding:5px">
+    <div class="container rounded" style="margin: 5px;background-color: white;padding:5px; width: auto; position: center">
       <div class="row">
         <div class="col">
           ASPD Modifier
@@ -55,7 +55,20 @@
           Base Interval
         </div>
         <div class="col">
-          <input type="number" id="base" name="base" value="1" min="0" step="0.01" onchange="calc()">
+          <select id="classSelect" onchange="updateBranches()">
+            <option value="null">Select a class</option>
+            <option value="Caster">Caster</option>
+            <option value="Defender">Defender</option>
+            <option value="Guard">Guard</option>
+            <option value="Medic">Medic</option>
+            <option value="Sniper">Sniper</option>
+            <option value="Specialist">Specialist</option>
+            <option value="Supporter">Supporter</option>
+            <option value="Vanguard">Vanguard</option>
+          </select>
+          <select id="branchSelect" onchange="calc()">
+            <option value="null">Select a branch</option>
+          </select>
         </div>
       </div>
       <div class="row">
@@ -63,7 +76,7 @@
           Interval Modifier
         </div>
         <div class="col">
-          <input type="number" id="modifier" name="modifier" value="0" onchange="calc()">
+          <input type="number" id="modifier" name="modifier" value="0" min="" step="0.01" onchange="calc()">
         </div>
       </div>
       <div class="row">
@@ -71,7 +84,16 @@
           ATK
         </div>
         <div class="col">
-          <input type="number" id="atk" name="atk" value="1" onchange="calc()"></div>
+          <input type="number" id="atk" name="atk" value="1" onchange="calc()">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          ATK Modifier(s)
+        </div>
+        <div class="col">
+          <input type="number" id="atkModifier" name="atkModifier" value="0" onchange="calc()">%
+        </div>
       </div>
     </div>
     <div class="container rounded" style="background-color:white;">
@@ -80,7 +102,7 @@
           Base DPM
         </div>
         <div class="col">
-          <label id="baseDPM">60</label>
+          <label id="baseDPM">0</label>
         </div>
       </div>
       <div class="row">
@@ -96,7 +118,7 @@
           DPM
         </div>
         <div class="col">
-          <label id="DPM">60</label>
+          <label id="DPM">0</label>
         </div>
       </div>
     </div>
