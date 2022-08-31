@@ -257,7 +257,9 @@ function calc() {
     let dpm = (atk + (atk * atkModifier)) * (60 / interval);
     let delta = ((dpm - baseDPM) / baseDPM) * 100
 
+    if (isNaN(base)) base = 0
     if (isNaN(baseDPM)) baseDPM = 0
+    if (isNaN(interval)) interval = 0
     if (isNaN(dpm)) dpm = 0
     if (isNaN(delta)) delta = 0
 
