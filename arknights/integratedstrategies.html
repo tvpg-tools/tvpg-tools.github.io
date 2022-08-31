@@ -42,9 +42,10 @@
     <div class="container rounded" style="background-color: white; padding: 5px; margin: 5px">
       <h1>Integrated Strategies Randomizer</h1>
     </div>
-    <div class="container rounded" style="background-color: white; padding: 5px; margin: 5px">
+    <div class="container rounded row" style="background-color: white; padding: 5px; margin: 5px">
       <h2>Randomizer</h2>
-      <div id="crimsonSolitaireSquadBonuses">
+      <div class="container col" id="crimsonSolitaireSquadBonuses">
+        <h3>Squad Bonuses</h3>
         <div>
           <input type="checkbox" name="Leader Squad" id="leaderSquad" checked>
           <label for="leaderSquad">Leader Squad</label>
@@ -86,7 +87,37 @@
           <label for="firstClassSquad">First-Class Squad</label>
         </div>
       </div>
-      <input type="button" onclick="randomizeCrimsonSolitaire()" value="Generate Crimson Solitaire Choices">
+      <div class="container col">
+        <h3>Bonuses</h3>
+        <div class="container row">
+          <div class="container col">
+            <label>Squad Bonus</label>
+          </div>
+          <div class="container col-6">
+            <label id="squadBonus"></label>
+          </div>
+        </div>
+        <div class="container row">
+          <div class="container col">
+            <label>Support Bonus</label>
+          </div>
+          <div class="container col-6">
+            <label id="supportBonus"></label>
+          </div>
+        </div>
+        <div class="container row">
+          <div class="container col">
+            <label>Recruitment Set</label>
+          </div>
+          <div class="container col-6">
+            <label id="recruitmentSet"></label>
+          </div>
+        </div>
+      </div>
+      <div class="container row">
+        <input type="button" onclick="randomizeCrimsonSolitaire()" value="Generate Crimson Solitaire Choices">
+      </div>
+
     </div>
   </div>
   <div class="container rounded" style="background-color: white; padding: 5px">

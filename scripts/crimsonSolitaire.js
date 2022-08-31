@@ -20,9 +20,9 @@ function randomizeCrimsonSolitaire() {
   const squadBonus = selectCSSquadBonus()
   const supportBonus = Math.floor(Math.random() * 3) + 1
   const recruitmentSet = selectCSRecruitmentSet()
-  alert(`Squad Bonus: ${squadBonus}`
-        +`\nSupport Bonus: ${supportBonus}`
-        +`\nRecruitment Set: ${recruitmentSet}`)
+  document.getElementById("squadBonus").innerHTML = squadBonus
+  document.getElementById("supportBonus").innerHTML = supportBonus.toString()
+  document.getElementById("recruitmentSet").innerHTML = recruitmentSet
 }
 
 function calculateASPDBonus()
