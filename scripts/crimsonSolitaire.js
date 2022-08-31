@@ -1,6 +1,10 @@
 function selectCSSquadBonus() {
   let container = document.querySelector('#crimsonSolitaireSquadBonuses')
   let selectedBonuses = container.querySelectorAll('input[type="checkbox"]:checked')
+  if (selectedBonuses.length === 0) {
+    alert("Please select at least one squad bonus")
+    return null
+  }
   let index = Math.floor(Math.random() * selectedBonuses.length)
   return selectedBonuses[index].name
 }
@@ -18,6 +22,9 @@ function selectCSRecruitmentSet() {
 
 function randomizeCrimsonSolitaire() {
   const squadBonus = selectCSSquadBonus()
+  if (squadBonus == null) {
+    return
+  }
   const supportBonus = Math.floor(Math.random() * 3) + 1
   const recruitmentSet = selectCSRecruitmentSet()
   document.getElementById("squadBonus").innerHTML = squadBonus
@@ -45,4 +52,21 @@ function calculateASPDBonus()
   }
 
   document.getElementById("bonus").innerHTML = `Bonus: ${aspdBonus}`
+}
+
+function deselectAllSquads() {
+  let container = document.querySelector('#crimsonSolitaireSquadBonuses')
+  let selectedBonuses = container.querySelectorAll('input[type="checkbox"]:checked')
+  for (let i = 0; i < selectedBonuses.length; i++) {
+    selectedBonuses[i].checked = false
+  }
+}
+
+function selectAllSquads() {
+  let container = document.querySelector('#crimsonSolitaireSquadBonuses')
+  let bonuses = container.querySelectorAll('input[type="checkbox"]')
+  for (let i = 0; i < bonuses.length; i++) {
+    bonuses[i].checked = true
+  }
+  
 }
