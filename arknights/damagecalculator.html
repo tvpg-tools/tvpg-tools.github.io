@@ -47,7 +47,7 @@
           ASPD Modifier
         </div>
         <div class="col">
-          <input type="number" id="aspd" name="aspd" value="0" onchange="calc()">
+          <input type="number" id="aspd" name="aspd" value="0" step="1" onchange="calc()">
         </div>
       </div>
       <div class="row">
@@ -99,6 +99,14 @@
     <div class="container rounded" style="background-color:white;">
       <div class="row">
         <div class="col">
+          Base Interval
+        </div>
+        <div class="col">
+          <label id="baseInterval">0</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           Base DPM
         </div>
         <div class="col">
@@ -111,6 +119,14 @@
         </div>
         <div class="col">
           <label id="dpmChange">0.00 %</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          New Interval
+        </div>
+        <div class="col">
+          <label id="newInterval">0</label>
         </div>
       </div>
       <div class="row">

@@ -257,11 +257,14 @@ function calc() {
     let dpm = (atk + (atk * atkModifier)) * (60 / interval);
     let delta = ((dpm - baseDPM) / baseDPM) * 100
 
+    if (isNaN(baseDPM)) baseDPM = 0
     if (isNaN(dpm)) dpm = 0
     if (isNaN(delta)) delta = 0
 
+    document.getElementById("baseInterval").innerHTML = `${base.toFixed(2)}`
     document.getElementById("baseDPM").innerHTML = `${baseDPM.toFixed(2)}`
     document.getElementById("dpmChange").innerHTML = `${delta.toFixed(2)} %`
+    document.getElementById("newInterval").innerHTML = `${interval.toFixed(2)}`
     document.getElementById("DPM").innerHTML = `${dpm.toFixed(2)}`
 }
 
