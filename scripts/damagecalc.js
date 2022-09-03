@@ -300,7 +300,7 @@ function addBranchesOfSingleClass(operatorClass) {
             return Vanguard
         default:
             return {
-                "Name": "Select an branch",
+                "Name": "Select a branch",
                 "Value": "null"
             }
     }
