@@ -5,13 +5,61 @@
   <title>Arknights - Damage Calculator</title>
   <meta charset="utf-8">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <style>
+  <script src="../scripts/bootstrapCheck.js"></script>
+  <style type="">
     body {
       background-size: cover;
     }
     nav {
       background-color: white;
     }
+    svg text {
+       font-family: Helvetica,Arial,Verdana,sans-serif;
+       fill: #666;
+       font-size: 12px;
+    }
+
+    .line {
+      fill: none;
+      stroke: #3880aa;
+      stroke-width: 3px;
+    }
+
+    .path-fill {
+      fill: #3880aa;
+      opacity: 0.3;
+      stroke: none;
+    }
+
+    .domain > .axis {
+      fill: none;
+    }
+
+    .tick .line > .axis {
+      stroke: #EEE;
+      stroke-width: 1px
+    }
+
+    line > .tooltip {
+      fill: none;
+      stroke: #3880aa;
+      stroke-width: 1px;
+      stroke-dasharray: 3px;
+    }
+
+    .point > .tooltip {
+      fill: #3880aa;
+      stroke: #3880aa;
+      stroke-width: 1px;
+    }
+
+    .avg-line {
+      fill: none;
+      stroke: #3880aa;
+      stroke-width: 1px;
+      stroke-dasharray: 5px;
+    }
+
   </style>
 
 </head>
@@ -40,7 +88,9 @@
         </div>
       </div>
     </nav>
-    <div class="container rounded" style="margin: 5px;background-color: white;padding:5px; width: auto; position: center">
+    <div class="container rounded"
+         id="operatorStatsForm" style="margin: 5px;background-color: white;padding:5px; width: auto; position: center">
+      <h2>Operator Stats</h2>
       <div class="row">
         <div class="col">
           ASPD Modifier
@@ -94,8 +144,27 @@
           <input type="number" id="atkModifier" name="atkModifier" value="0" onchange="calc()">%
         </div>
       </div>
+      <div class="row">
+        <div class="col align-content-center">
+          <label>Damage Type</label>
+        </div>
+        <form class="col" id="opDmgType">
+          <div>
+            <input type="radio" value="artsDmg" id="opArtsDmg" name="opDmgGroup">
+            <label for="enemyArtsDmg">Arts Damage</label>
+          </div>
+          <div>
+            <input type="radio" value="physDmg" id="opPhysDmg" name="opDmgGroup">
+            <label for="enemyPhysDmg">Physical Damage</label>
+          </div>
+          <div>
+            <input type="radio" value="trueDmg" id="opTrueDmg" name="opDmgGroup">
+            <label for="enemyTrueDmg">True Damage</label>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="container rounded" style="background-color:white;">
+    <div class="container rounded" style="background-color:white;" id="operatorStats">
       <div class="row">
         <div class="col">
           Base Interval
@@ -137,9 +206,83 @@
         </div>
       </div>
     </div>
-  </div>
+    <div class="container rounded" id="enemyStatsForm" style="margin: 5px;background-color: white;padding:5px; width:
+    auto; position: center">
+      <h2>Enemy Stats</h2>
+      <div class="row">
+        <div class="col">
+          <label>HP</label>
+        </div>
+        <div class="col">
+          <input type="number" id="enemyHP" step="1" min="0" value="0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Attack</label>
+        </div>
+        <div class="col">
+          <input type="number" id="enemyAtk" step="1" min="0" value="0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Attack Interval</label>
+        </div>
+        <div class="col">
+          <input type="number" step="0.01" min="0" value="0" id="enemyAtkInterval">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Defense</label>
+        </div>
+        <div class="col">
+          <input type="number" id="enemyDef" step="1" min="0" value="0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Resistance</label>
+        </div>
+        <div class="col">
+          <input type="number" id="enemyRes" step="1" min="0" max="100" value="0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col align-content-center">
+          <label>Damage Type</label>
+        </div>
+        <form class="col" id="enemyDmgType">
+          <div>
+            <input type="radio" value="artsDmg" id="enemyArtsDmg" name="enemyDmgGroup">
+            <label for="enemyArtsDmg">Arts Damage</label>
+          </div>
+          <div>
+            <input type="radio" value="physDmg" id="enemyPhysDmg" name="enemyDmgGroup">
+            <label for="enemyPhysDmg">Physical Damage</label>
+          </div>
+          <div>
+            <input type="radio" value="trueDmg" id="enemyTrueDmg" name="enemyDmgGroup">
+            <label for="enemyTrueDmg">True Damage</label>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container rounded" id="chart">
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script>
+    if(typeof($.fn.modal) === "undefined")
+    {
+      document.write('<script src="../lib/bootstrap.bundle.min.js"><\/script>')
+    }
+  </script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script type="text/javascript" src="OpClasses.js"></script>
   <script type="text/javascript" src="../scripts/damagecalc.js"></script>
 </body>
 </html>
