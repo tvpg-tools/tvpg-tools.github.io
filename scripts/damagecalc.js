@@ -2,11 +2,40 @@ let opData = []
 
 let opInterval
 let opDamage
+let opDamageType
 
 let enemyData = []
 
 let enemyInterval
 let enemyDamage
+
+let enemy = {
+    HP: 0,
+    ATK: 0,
+    Interval: 0,
+    ASPD: 0,
+    DEF: 0,
+    RES: 0,
+    dmgType: ""
+}
+let useEnemyStats = false
+let useOpStats = false
+
+const DmgType = {
+    Phys: "Physical",
+    Arts: "Arts",
+    True: "True"
+}
+
+function updateOpValues() {
+    updateEnemyData()
+    calc()
+}
+
+function updateEnemyValues() {
+    calc()
+    updateEnemyData()
+}
 
 function calc() {
     let aspd = parseInt(document.getElementById("aspd").value)
@@ -15,12 +44,44 @@ function calc() {
     let atk = parseInt(document.getElementById("atk").value)
     let atkModifier = parseFloat(document.getElementById("atkModifier").value) / 100
 
+    useEnemyStats = document.querySelector("#useEnemyStats").checked
+
+    opDamageType = getOpDmgType()
+
     let numerator = 100 + aspd
     let denominator = base + modifier
     opInterval = 100 / (numerator / denominator)
-    opDamage = (atk + (atk * atkModifier))
+    let totalAtk = (atk + (atk * atkModifier))
+    let dpm
+    if (useEnemyStats)
+    {
+        if (opDamageType === DmgType.Phys)
+        {
+            opDamage = totalAtk - enemy.DEF
+            if (opDamage < totalAtk * 0.05)
+            {
+                opDamage = totalAtk * 0.05
+            }
+        }
+        else if (opDamageType === DmgType.Arts) {
+            opDamage = totalAtk * (1 - enemy.RES)
+            if (opDamage < 0.05 * totalAtk)
+            {
+                opDamage = totalAtk * 0.05
+            }
+        }
+        else if (opDamageType === DmgType.True || opDamageType === null)
+        {
+            opDamage = totalAtk
+        }
+        dpm = opDamage * (60 / opInterval)
+    }
+    else
+    {
+        opDamage = totalAtk
+        dpm = totalAtk * (60 / opInterval);
+    }
     let baseDPM = atk * (60 / base)
-    let dpm =  opDamage * (60 / opInterval);
     let delta = ((dpm - baseDPM) / baseDPM) * 100
 
     if (isNaN(base)) base = 0
@@ -34,6 +95,21 @@ function calc() {
     document.getElementById("dpmChange").innerHTML = `${delta.toFixed(2)} %`
     document.getElementById("newInterval").innerHTML = `${opInterval.toFixed(2)}`
     document.getElementById("DPM").innerHTML = `${dpm.toFixed(2)}`
+}
+
+function getOpDmgType() {
+    let d = document.querySelector("#opDmgType")
+    let selected = d.querySelector('input[type="radio"]:checked')
+    switch (selected.value) {
+        case "artsDmg":
+            return DmgType.Arts
+        case "physDmg":
+            return DmgType.Phys
+        case "trueDmg":
+            return DmgType.True
+        default:
+            return null
+    }
 }
 
 function calculateDenominator(baseInterval, intervalModifier) {
@@ -127,10 +203,12 @@ function generateOpData() {
     }
 }
 
-function generateEnemyData() {
-    let enemyAtk = parseInt(document.getElementById("enemyAtk").value)
-    enemyInterval = parseFloat(document.getElementById("enemyAtkInterval").value)
-    enemyDamage = (enemyAtk) * 60
+function updateEnemyData() {
+    enemy.ATK = parseInt(document.getElementById("enemyAtk").value)
+    enemy.Interval = parseFloat(document.getElementById("enemyAtkInterval").value)
+    enemy.DEF = parseInt(document.getElementById("enemyDef").value)
+    enemy.RES = parseInt(document.getElementById("enemyRes").value) / 100.0
+    enemyDamage = (enemy.ATK) * 60
 
     let damage = 0
     enemyData = []
