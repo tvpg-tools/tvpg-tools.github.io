@@ -115,13 +115,14 @@ function sortBranchesAlphabetically(a, b) {
 function generateOpData() {
     let damage = 0
     opData = []
-    for (let i = 0; i < 60; i += opInterval) {
+    for (let i = 1; i < 60; i += opInterval) {
         damage += opDamage
-        let temp = {
-            initial: i,
-            final: i + opInterval,
-            totalDamage: damage
-        }
+        let temp = [i, damage]
+        // let temp = {
+        //     initial: i,
+        //     final: i + opInterval,
+        //     totalDamage: damage
+        // }
         opData.push(temp)
     }
 }

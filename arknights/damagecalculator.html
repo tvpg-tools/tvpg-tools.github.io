@@ -81,6 +81,9 @@
                 <li>
                   <a class="dropdown-item" href="integratedstrategies.html">Integrated Strategies</a>
                 </li>
+                <li>
+                  <a class="dropdown-item" href="glossary.html">Glossary</a>
+                </li>
               </ul>
             </li>
 
@@ -151,15 +154,15 @@
         <form class="col" id="opDmgType">
           <div>
             <input type="radio" value="artsDmg" id="opArtsDmg" name="opDmgGroup">
-            <label for="enemyArtsDmg">Arts Damage</label>
+            <label for="opArtsDmg">Arts Damage</label>
           </div>
           <div>
             <input type="radio" value="physDmg" id="opPhysDmg" name="opDmgGroup">
-            <label for="enemyPhysDmg">Physical Damage</label>
+            <label for="opPhysDmg">Physical Damage</label>
           </div>
           <div>
             <input type="radio" value="trueDmg" id="opTrueDmg" name="opDmgGroup">
-            <label for="enemyTrueDmg">True Damage</label>
+            <label for="opTrueDmg">True Damage</label>
           </div>
         </form>
       </div>
@@ -243,7 +246,7 @@
       </div>
       <div class="row">
         <div class="col">
-          <label>Resistance</label>
+          <label>Arts Resist</label>
         </div>
         <div class="col">
           <input type="number" id="enemyRes" step="1" min="0" max="100" value="0">
@@ -284,5 +287,6 @@
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script type="text/javascript" src="OpClasses.js"></script>
   <script type="text/javascript" src="../scripts/damagecalc.js"></script>
+  <script type="text/javascript" src="../scripts/comparisonChart.js"></script>
 </body>
 </html>
