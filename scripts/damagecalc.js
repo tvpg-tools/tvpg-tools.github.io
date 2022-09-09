@@ -37,6 +37,29 @@ function updateEnemyValues() {
     updateEnemyData()
 }
 
+function calculateDamage(atk, dmgType, mitigator) {
+    let damage = 0
+    let minAtk = atk * 0.05
+    if (dmgType === DmgType.Phys) {
+        damage = atk - mitigator
+        if (damage < minAtk) {
+            return minAtk
+        }
+        return damage
+    }
+    else if (dmgType === DmgType.Arts) {
+        damage = atk * (1 - mitigator)
+        if (damage < minAtk) {
+            return minAtk
+        }
+        return damage
+    }
+    else if (dmgType === DmgType.True) {
+        return damage
+    }
+
+}
+
 function calc() {
     let aspd = parseInt(document.getElementById("aspd").value)
     let base = parseFloat(document.getElementById("branchSelect").value)
@@ -55,23 +78,13 @@ function calc() {
     let dpm
     if (useEnemyStats)
     {
-        if (opDamageType === DmgType.Phys)
-        {
-            opDamage = totalAtk - enemy.DEF
-            if (opDamage < totalAtk * 0.05)
-            {
-                opDamage = totalAtk * 0.05
-            }
+        if (opDamageType === DmgType.Phys) {
+            opDamage = calculateDamage(totalAtk, opDamageType, enemy.DEF)
         }
         else if (opDamageType === DmgType.Arts) {
-            opDamage = totalAtk * (1 - enemy.RES)
-            if (opDamage < 0.05 * totalAtk)
-            {
-                opDamage = totalAtk * 0.05
-            }
+            opDamage = calculateDamage(totalAtk, opDamageType, enemy.RES)
         }
-        else if (opDamageType === DmgType.True || opDamageType === null)
-        {
+        else if (opDamageType === DmgType.True) {
             opDamage = totalAtk
         }
         dpm = opDamage * (60 / opInterval)
@@ -110,10 +123,6 @@ function getOpDmgType() {
         default:
             return null
     }
-}
-
-function calculateDenominator(baseInterval, intervalModifier) {
-    return baseInterval + intervalModifier
 }
 
 function resetBranchSelect(parent) {

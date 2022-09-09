@@ -16,8 +16,14 @@
                                 <a class="nav-link" aria-current="page" href="../index.html">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Arknights</a>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false">Arknights <span class="badge text-bg-warning">Updated</span></a>
                                 <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="for-new-players.html">For New Players
+                                            <span class="badge" style="background-color: green; fill: white">New
+                                            </span></a>
+                                    </li>
                                     <li>
                                         <a class="dropdown-item" href="damage-calculator.html">Damage Calculator</a>
                                     </li>
@@ -37,6 +43,13 @@
             <div class="container">
                 <h1>Glossary</h1>
                 <div class="container">
+                    <h5>Aerial <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <div>
+                        <p>
+                            Enemies that can fly over the map, ignoring its topography, have this designation. May
+                            sometimes be described as a "Flying unit."
+                        </p>
+                    </div>
                     <h5>Attributes</h5>
                     <div>
                         <p>
@@ -78,6 +91,13 @@
                             <li>True: Ignores DEF and RES; deals damage equal to the character's ATK</li>
                         </ul>
                     </div>
+                    <h5>Damage per Second (DPS) <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <div>
+                        <p>
+                            A metric used in determining an operator's "strength," typically against a single target.
+                            Can also be used to refer to characters who are damage focused.
+                        </p>
+                    </div>
                     <h5>Deployment Points (DP)</h5>
                     <div>
                         <p>Required to deploy operators. Vanguard operators can generate DP either by using their
@@ -100,6 +120,13 @@
                         <p>The categories into which all operators are separated. Jobs are sub-divided into
                             <dfn>Branches</dfn>.</p>
                     </div>
+                    <h5>Melee <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <div>
+                        <p>
+                            <em>Melee</em> operators are those who can be placed on "low" tiles, and typically engage
+                            the enemy via blocking. Melee enemies can only attack operators that they are blocked by.
+                        </p>
+                    </div>
                     <h5>Originite Prime</h5>
                     <div>
                         <p>A premium currency that can be used to purchase skins for characters, refresh
@@ -113,6 +140,18 @@
                     <h5>Lungmen Dollars (LMD)</h5>
                     <div>
                         <p>A resource required for improving operators and producing some materials in the Base.</p>
+                    </div>
+                    <h5>Ranged <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <div>
+                        <p>
+                            <em>Ranged</em> operators are those that can be placed on "high" tiles. Ranged operators
+                            will generally focus the enemies in range that currently have the shortest path to their
+                            targeted Objective. <em>Marksmen Snipers</em>, for example, will prioritize <em>Aerial</em>
+                            enemies, even if there is a melee enemy (in range) about to enter the Objective.
+                            <br>
+                            <em>Ranged</em> enemies will attack <em>the most recently deployed</em> operator within
+                            their range, unless otherwise specified.
+                        </p>
                     </div>
                     <h5>Recruiting</h5>
                     <div>
@@ -140,15 +179,19 @@
                         <p>May be required to activate an operator's skill, and can be generated in one of three
                             ways:</p>
                         <ul>
-                            <li><code style="background-color: limegreen; color: white; padding: 1px">Auto</code>:
+                            <li><span class="badge" style="background-color: limegreen;">Auto</span>
                                 Gained
                                 at a
                                 rate
                                 of 1 per
                                 second.</li>
-                            <li><code style="background-color: orangered; color: white; padding: 1px;">Offensive</code>: Gained every time the operator
+                            <li><span class="badge" style="background-color: orangered">Offensive</span>
+                                Gained every time the operator
                                 attacks.</li>
-                            <li><code style="background-color: orange; color: white; padding: 1px;">Defensive</code>: Gained every time the operator is
+                            <li><span class="badge" style="background-color: orange;">Defensive</span> Gained every
+                                time
+                                the
+                                operator is
                                 attacked.</li>
                         </ul>
                     </div>
