@@ -27,9 +27,9 @@ function randomizeCrimsonSolitaire() {
   }
   const supportBonus = Math.floor(Math.random() * 3) + 1
   const recruitmentSet = selectCSRecruitmentSet()
-  document.getElementById("squadBonus").innerHTML = squadBonus
-  document.getElementById("supportBonus").innerHTML = supportBonus.toString()
-  document.getElementById("recruitmentSet").innerHTML = recruitmentSet
+  document.getElementById("csSquadBonus").innerHTML = squadBonus
+  document.getElementById("csSupportBonus").innerHTML = supportBonus.toString()
+  document.getElementById("csRecruitmentSet").innerHTML = recruitmentSet
 }
 
 function calculateASPDBonus()

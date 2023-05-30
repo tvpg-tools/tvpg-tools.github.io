@@ -47,49 +47,49 @@
     <div class="container rounded" style="background-color: white; padding: 5px; margin: 5px">
       <h1>Integrated Strategies Randomizer</h1>
     </div>
-    <div class="container rounded row" style="background-color: white; padding: 5px; margin: 5px">
-      <h2>Randomizer</h2>
+    <div class="container rounded row">
+      <h2>Crimson Solitaire</h2>
       <div class="container col" id="crimsonSolitaireSquadBonuses">
         <h3>Squad Bonuses</h3>
         <div>
-          <input type="checkbox" name="Leader Squad" id="leaderSquad" checked>
-          <label for="leaderSquad">Leader Squad</label>
+          <input type="checkbox" name="Leader Squad" id="csLeaderSquad" checked>
+          <label for="csleaderSquad">Leader Squad</label>
         </div>
         <div>
-          <input type="checkbox" name="Gathering Squad" id="gatheringSquad" checked>
-          <label for="gatheringSquad">Gathering Squad</label>
+          <input type="checkbox" name="Gathering Squad" id="csGatheringSquad" checked>
+          <label for="csGatheringSquad">Gathering Squad</label>
         </div>
         <div>
-          <input type="checkbox" name="Support Squad" id="supportSquad" checked>
-          <label for="supportSquad">Support Squad</label>
+          <input type="checkbox" name="Support Squad" id="csSupportSquad" checked>
+          <label for="csSupportSquad">Support Squad</label>
         </div>
         <div>
-          <input type="checkbox" name="Spearhead Squad" id="spearheadSquad" checked>
-          <label for="spearheadSquad">Spearhead Squad</label>
+          <input type="checkbox" name="Spearhead Squad" id="csSpearheadSquad" checked>
+          <label for="csSpearheadSquad">Spearhead Squad</label>
         </div>
         <div>
-          <input type="checkbox" name="Tactical Assault Operative" id="tacticalAssault" checked>
-          <label for="tacticalAssault">Tactical Assault Operative</label>
+          <input type="checkbox" name="Tactical Assault Operative" id="csTacticalAssault" checked>
+          <label for="csTacticalAssault">Tactical Assault Operative</label>
         </div>
         <div>
-          <input type="checkbox" name="Tactical Fortification Operative" id="tacticalFortification" checked>
-          <label for="tacticalFortification">Tactical Fortification Operative</label>
+          <input type="checkbox" name="Tactical Fortification Operative" id="csTacticalFortification" checked>
+          <label for="csTacticalFortification">Tactical Fortification Operative</label>
         </div>
         <div>
-          <input type="checkbox" name="Tactical Ranged Operative" id="tacticalRanged" checked>
-          <label for="tacticalRanged">Tactical Ranged Operative</label>
+          <input type="checkbox" name="Tactical Ranged Operative" id="csTacticalRanged" checked>
+          <label for="csTacticalRanged">Tactical Ranged Operative</label>
         </div>
         <div>
-          <input type="checkbox" name="Tactical Destructive Operative" id="tacticalDestructive" checked>
-          <label for="tacticalDestructive">Tactical Destructive Operative</label>
+          <input type="checkbox" name="Tactical Destructive Operative" id="csTacticalDestructive" checked>
+          <label for="csTacticalDestructive">Tactical Destructive Operative</label>
         </div>
         <div>
-          <input type="checkbox" name="Research Squad" id="researchSquad" checked>
-          <label for="researchSquad">Research Squad</label>
+          <input type="checkbox" name="Research Squad" id="csResearchSquad" checked>
+          <label for="csResearchSquad">Research Squad</label>
         </div>
         <div>
-          <input type="checkbox" name="First-Class Squad" id="firstClassSquad" checked>
-          <label for="firstClassSquad">First-Class Squad</label>
+          <input type="checkbox" name="First-Class Squad" id="csFirstClassSquad" checked>
+          <label for="csFirstClassSquad">First-Class Squad</label>
         </div>
         <input type="button" onclick="deselectAllSquads()" value="Deselect All">
         <input type="button" onclick="selectAllSquads()" value="Select All">
@@ -101,7 +101,7 @@
             <label>Squad Bonus</label>
           </div>
           <div class="container col-6">
-            <label id="squadBonus"></label>
+            <label id="csSquadBonus"></label>
           </div>
         </div>
         <div class="container row">
@@ -109,7 +109,7 @@
             <label>Support Bonus</label>
           </div>
           <div class="container col-6">
-            <label id="supportBonus"></label>
+            <label id="csSupportBonus"></label>
           </div>
         </div>
         <div class="container row">
@@ -117,12 +117,104 @@
             <label>Recruitment Set</label>
           </div>
           <div class="container col-6">
-            <label id="recruitmentSet"></label>
+            <label id="csRecruitmentSet"></label>
           </div>
         </div>
       </div>
       <div class="container row">
-        <input type="button" onclick="randomizeCrimsonSolitaire()" value="Generate Crimson Solitaire Choices">
+        <input type="button" onclick="randomizeCrimsonSolitaire()" value="Generate Crimson Solitaire Choices"
+        class="btn btn-danger">
+      </div>
+      <h2>Caerula Arbor</h2>
+      <div class="container col" id="caerulaArborSquadBonuses">
+        <h3>Squad Bonuses</h3>
+        <div>
+          <div>
+            <input type="checkbox" name="Mind Over Matter Squad" id="MOMsquad">
+            <label for="MOMsquad">Mind Over Matter Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Resourceful Squad" id="resourceful">
+            <label for="resourceful">Resourceful Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="People-Oriented Squad" id="people">
+            <label for="people">People-Oriented Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Leader Squad" id="caLeader">
+            <label for="caLeader">Leader Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Gathering Squad" id="caGathering">
+            <label for="caGathering">Gathering Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Support Squad" id="caSupportSquad">
+            <label for="caSupportSquad">Support Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Spearhead Squad" id="caSpearheadSquad">
+            <label for="caSpearheadSquad">Spearhead Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Tactical Assault Squad" id="caTacticalAssault">
+            <label for="caTacticalAssault">Tactical Assault Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Tactical Fortification Squad" id="caTacticalFortification">
+            <label for="caTacticalFortification">Tactical Fortification Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Tactical Ranged Squad" id="caTacticalRanged">
+            <label for="caTacticalRanged">Tactical Ranged Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Tactical Destruction Squad" id="caTacticalDestruction">
+            <label for="caTacticalDestruction">Tactical Destruction Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="Research Squad" id="caResearch">
+            <label for="caResearch">Research Squad</label>
+          </div>
+          <div>
+            <input type="checkbox" name="First-Class Squad" id="caFirstClass">
+            <label for="caFirstClass">First-Class Squad</label>
+          </div>
+          <input type="button" onclick="deselectAllSquads()" value="Deselect All">
+          <input type="button" onclick="selectAllSquads()" value="Select All">
+        </div>
+        <div class="container col">
+          <div class="container row">
+            <h3>Bonuses</h3>
+            <div class="container col">
+              <label>Squad Bonus</label>
+            </div>
+            <div class="container col-6">
+              <label id="caSquadBonus"></label>
+            </div>
+          </div>
+          <div class="container row">
+            <div class="container col">
+              <label>Support Bonus</label>
+            </div>
+            <div class="container col-6">
+              <label id="caSupportBonus"></label>
+            </div>
+          </div>
+          <div class="container row">
+            <div class="container col">
+              <label>Recruitment Set</label>
+            </div>
+            <div class="container col-6">
+              <label id="caRecruitmentSet"></label>
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="container row">
+        <input type="button" onclick="randomizeCaerulaArbor()" value="Generate Caerula Arbor Choices"
+               class="btn btn-info">
       </div>
 
     </div>
@@ -153,5 +245,6 @@
     </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <script src="../scripts/crimsonSolitaire.js"></script>
+  <script src="../scripts/caerulaArbor.js"></script>
 </body>
 </html>
