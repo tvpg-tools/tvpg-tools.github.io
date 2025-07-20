@@ -43,33 +43,33 @@
             <section class="container">
                 <h1>Glossary</h1>
                 <div class="container">
-                    <h5>Aerial <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Aerial</h5>
                     <section>
                         <p>
                             Enemies that can fly over the map, ignoring its topography, have this designation. May
                             sometimes be described as a "Flying unit."
                         </p>
                     </section>
-                    <h5>Arts Resist (RES) <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Arts Resist (RES)</h5>
                     <section>
                         <p>
                             The percentage amount of arts damage that can be mitigated by an operator.
                         </p>
                     </section>
-                    <h5>Attack (ATK) <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Attack (ATK)</h5>
                     <section>
                         <p>
                             The maximum amount of damage the operator can deal when attacking.
                         </p>
                     </section>
-                    <h5>Attack Interval <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Attack Interval</h5>
                     <section>
                         <p>
                             The actual rate at which an operator attacks; can be considered as the amount of time it
                             takes for the operator to complete their attack animation.
                         </p>
                     </section>
-                    <h5>Attack Speed (ASPD) <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Attack Speed (ASPD)</h5>
                     <section>
                         <p>
                             The relative rate at which an operator attack. ASPD modifiers are treated as a percentage
@@ -105,7 +105,7 @@
                             <li>Strategic Battle Record: Provides 2000 EXP</li>
                         </ul>
                     </section>
-                    <h5>Block <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Block</h5>
                     <section>
                         <p>
                             Describes the maximum number of enemy units the operator can intercept.
@@ -119,14 +119,14 @@
                             The sub-class that an operator belongs to. Determines the operator's <dfn>Trait</dfn>.
                         </p>
                     </section>
-                    <h5>Cost <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Cost</h5>
                     <section>
                         <p>
                             The amount of deployment points required to deploy an operator.
                             Increases after the first deployment.
                         </p>
                     </section>
-                    <h5>Damage</h5>
+                    <h5>Damage <span class="badge text-bg-warning">Updated</span></h5>
                     <section>
                         <p>
                             The minimum amount of damage done is 5% of ATK. Separated into three types:
@@ -134,6 +134,7 @@
                         <ul>
                             <li>Physical: Mitigated at a flat rate by a character's DEF stat</li>
                             <li>Arts: Mitigated at a percentage rate based on character's RES stat</li>
+                            <li>Elemental: Dealt upon, and sometimes after, triggering an <em>Elemental Burst</em></li>
                             <li>True: Ignores DEF and RES; deals damage equal to the character's ATK</li>
                         </ul>
                     </section>
@@ -144,7 +145,7 @@
                             Can also be used to refer to characters who are damage focused.
                         </p>
                     </section>
-                    <h5>Defense (DEF) <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Defense (DEF)</h5>
                     <section>
                         <p>
                             The amount of physical damage that an operator can mitigate when attacked.
@@ -155,6 +156,21 @@
                         <p>
                             Required to deploy operators. Vanguard operators can generate DP either by using their
                             skills or by defeating enemies.
+                        </p>
+                    </section>
+                    <h5>Elemental Burst <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <section>
+                        <p>
+                            When an enemy or operator receives enough <em>Elemental Injury</em> they will take a
+                            specific type of damage and be subjected to a <em>Status Effect</em> for a period of time.
+                        </p>
+                    </section>
+                    <h5>Elemental Injury <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <section>
+                        <p>
+                            A "secondary" damage type inflicted upon operators and enemies. When enough injury has been
+                            received, 1000 for operators and normal or elite enemies and 2000 bosses, an <em>Elemental
+                            Burst</em> will be triggered.
                         </p>
                     </section>
                     <h5>Headhunting</h5>
@@ -170,13 +186,13 @@
                             Comes in single- and ten-roll variants.
                         </p>
                     </section>
-                    <h5>Hit Points (HP) <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Hit Points (HP)</h5>
                     <section>
                         <p>
                             The amount of damage an operator can take before being forcibly retreated.
                         </p>
                     </section>
-                    <h5>HP Seal <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>HP Seal</h5>
                     <section>
                         <p>
                             The maximum number of times enemies can enter the Objective before you fail the operation.
@@ -190,16 +206,16 @@
                             <dfn>Branches</dfn>.
                         </p>
                     </section>
-                    <h5>Lane <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Lane</h5>
                     <section>
                         <p>
                             A path that enemy units will take to reach the objective.
                         </p>
                     </section>
-                    <h5>Leak <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Leak</h5>
                     <section>
                         <p>
-                            When an enemy breaks through your defense, and potentially enters the Objective.
+                            When an enemy breaks through your defense and enters the Objective.
                         </p>
                     </section>
                     <h5>Melee</h5>
@@ -232,8 +248,9 @@
                     <h5>Ranged</h5>
                     <section>
                         <p>
-                            <em>Ranged</em> operators are those that can be placed on "high" tiles. Ranged operators
-                            will generally focus the enemies in range that currently have the shortest path to their
+                            <em>Ranged</em> operators are those that can be placed on "high" tiles. Ranged operators,
+                            unless otherwise specified, will generally focus the enemies in range that currently have
+                            the shortest path to their
                             targeted Objective. <em>Marksmen Snipers</em>, for example, will prioritize <em>Aerial</em>
                             enemies, even if there is a melee enemy (in range) about to enter the Objective.
                             <br>
@@ -249,7 +266,7 @@
                             <em>Tags</em> can be used to increase the chance of acquiring certain operators.
                         </p>
                     </section>
-                    <h5>Redeploy <span class="badge rounded-pill text-bg-primary">New</span></h5>
+                    <h5>Redeploy</h5>
                     <section>
                         <p>
                             The relative amount of time before an operator can be redeployed after retreating.
